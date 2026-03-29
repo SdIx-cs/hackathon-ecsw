@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Touch Grass 🌱</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- Inline style for background (can later be moved to CSS) -->
+<style>
+  body {
+    background-image: url("background/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+</style>
+
+<body>
+
+  <div class="container">
+    <!-- header -->
+    <header>
+      <h1>🌱 Touch Grass</h1>
+      <p style="color: white">
+        Choose an offline activity and commit to it to earn rewards! 😋
+      </p>
+    </header>
+
+    <!-- ACTIVITY SELECTION CARD -->
+    <div class="card" id="selectActivity">
+
+      <!-- Activity Dropdown -->
+      <select id="activitySelect" onchange="handleActivityChange()">
+        <option value="">-- Choose an activity --</option>
+        <option value="Gardening">🌿 Gardening</option>
+        <option value="Painting">🎨 Painting</option>
+        <option value="Reading">📚 Reading</option>
+        <option value="Walking">🚶 Walking</option>
+        <option value="Workout">🏋️ Workout</option>
+        <option value="Other">Other...</option>
+      </select>
+
+      <!-- Custom Activity Input (hidden by default) -->
+      <input 
+        type="text" 
+        id="customActivity" 
+        placeholder="Write your activity..." 
+        class="hidden"
+      />
+
+      <button onclick="startGrassMode()">Start Grass Mode (30 min)</button>
+      <p id="selectedActivityDisplay"></p>
+
+    </div>
+
+    <!--  TIMER CARD -->
+    <div class="card hidden" id="timerSection">
+      <div class="timer" id="timer">5:00</div>
+      <p id="currentActivityText"></p>
+
+      <button onclick="completeEarly()">Complete Early</button>
+      <button onclick="giveUp()">Give Up</button>
+      <button onclick="simulateOutdoor()">Simulate Outdoor GPS Unlock</button>
+    </div>
+
+    <!-- REWARD CARD -->
+    <div class="card hidden" id="rewardSection">
+      <h3>🎉 Activity Completed!</h3>
+      <p id="rewardActivity"></p>
+      <p id="rewardPoints"></p>
+      <button onclick="postToFeed()">Go to Community and Post!</button>
+      <button onclick="back()">Start a new challenge!</button>
+    </div>
+
+    <!-- POINTS SUMMARY CARD -->
+    <div class="card points-summary">
+      <h3>🌟 Points & Sessions</h3>
+      <p>Points: <span id="points">0</span></p>
+      <p>Total Grass Sessions: <span id="sessions">0</span></p>
+      <p>Total Minutes Offline: <span id="minutes">0</span></p>
+    </div>
+
+    <!-- EDEEM REWARDS CARD -->
+    <div class="card">
+      <h3>🎫 Redeem Rewards</h3>
+      <p>Use your points to redeem well-deserved rewards! (Each costs 100 points)</p>
+
+      <select id="activityVoucher">
+        <option value="">-- Choose a reward --</option>
+        <option value="Starbucks 20%">☕ Starbucks 20%</option>
+        <option value="Costa Coffee 1 Free Drink">☕ Costa Coffee 1 Free Drink</option>
+        <option value="Amazon $15 gift card">🛍️ Amazon $15 gift card</option>
+        <option value="Dominos Pizza Free Drinks">🍕 Dominos Pizza Free Drinks</option>
+      </select>
+
+      <button onclick="redeemReward()">Redeem my Reward!</button>
+    </div>
+
+  </div> 
+
+  <!-- MASCOT SECTION-->
+  <div id="mascotContainer">
+    <div id="speechBubble" class="hidden"></div>
+    <img id="mascot" src="expr/neutral.png" alt="Mascot">
+  </div>
+
+  <!-- 
+       SCRIPTS
+       External JS linked for modularity  -->
+  <script src="home.js"></script>
+
+</body>
+</html>

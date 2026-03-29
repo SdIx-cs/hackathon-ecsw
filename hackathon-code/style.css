@@ -1,0 +1,277 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+  /* Background overlay for readability */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4); /* adjust darkness here */
+    z-index: -1;
+  }
+
+    h1 {
+    margin-top: 40px;
+    text-align: center;
+    color: white;
+  }
+
+    .container {
+      padding: 20px;
+      max-width: 420px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      color: #333;
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 12px;
+      background: #4CAF50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #388E3C;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ccc;       
+      border-radius: 12px;          
+      background: white;            
+      color: #333;                  
+      font-size: 16px;
+      box-sizing: border-box;       /* ensures padding doesn’t overflow width */
+      margin-top: 10px;
+      transition: border 0.2s, box-shadow 0.2s; /* smooth focus effect */
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    /* Improve readability on image backgrounds */
+    .text-shadow {
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+
+    .timer {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .points {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .feed {
+      text-align: left;
+      margin-top: 10px;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .feed-item {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .hidden {
+      display: none !important; 
+    }
+
+
+#customActivity {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ccc;       
+  border-radius: 12px;          
+  background: white;           
+  color: #333;                 
+  font-size: 16px;
+  box-sizing: border-box;       
+  margin-top: 10px;
+  transition: border 0.2s, box-shadow 0.2s; 
+}
+
+#customActivity:focus {
+  outline: none;
+  border-color: #4CAF50;        /* highlight border in your theme’s green */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* subtle glow */
+}
+
+.hidden {
+  display: none;                /* keep existing hidden class behavior */
+}
+
+
+
+#mascotContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  text-align: center;
+  width: 300px;
+  pointer-events: none; /* optional so it doesn't block clicks */
+}
+
+#mascot {
+  width: 250px;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+#mascotMessage {
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+#mascotContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 250px;
+    z-index: 1000;
+}
+
+#mascot {
+    width: 100%;
+}
+
+/* Speech bubble */
+#speechBubble {
+    position: absolute;
+    bottom: 250px;
+    right: 0;
+    background: white;
+    padding: 10px 14px;
+    border-radius: 15px;
+    max-width: 250px;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    animation: popIn 0.3s ease;
+}
+
+/* Bubble tail */
+#speechBubble::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+/* Hidden state */
+.hidden {
+    display: none;
+}
+
+input[type="file"] {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+input[type="file"]::file-selector-button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #388E3C;
+}
+
+/* =================== Feed & Posts Enhancements =================== */
+
+/* Feed container: ensures posts have spacing */
+#feed {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;            /* spacing between each post */
+    margin-top: 20px;     /* spacing from container top */
+}
+
+/* Individual post styling */
+.post {
+    background: rgba(255, 255, 255, 0.4); /* slightly transparent white */
+    padding: 16px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    backdrop-filter: blur(20px);           /* subtle glass effect */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;                             /* spacing between elements inside post */
+}
+
+/* Post caption & text */
+.post p {
+    color: #333;        /* dark text for readability */
+    margin: 0;          /* reset margin to avoid extra spacing */
+}
+
+/* Post image styling */
+.post img {
+    width: 100%;        /* fill post width */
+    max-height: 300px;  /* optional max height to maintain layout */
+    object-fit: cover;  /* crops nicely if aspect ratio differs */
+    border-radius: 12px;
+    margin-top: 8px;
+}
+
+/* Post action buttons */
+.post .actions {
+    display: flex;
+    gap: 10px;          /* spacing between like/delete buttons */
+    flex-wrap: wrap;    /* ensures responsive layout on small screens */
+}
+
+/* Comment input inside post */
+.comment-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Pop animation */
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

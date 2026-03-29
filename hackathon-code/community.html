@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Green Community 🌿</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- Inline style for background (can be moved to CSS) -->
+<style>
+  body {
+    background-image: url("background/background2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+</style>
+
+<body>
+
+  <!-- header -->
+  <header>
+    <h1>🌿 Green Achievers Community</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- FRIENDS CARD -->
+    <div class="card" id="friendsCard">
+      <h3>👥 Add Your Friends</h3>
+      <input type="text" id="friendInput" placeholder="Enter Friend Code">
+      <button id="addFriendBtn">Add Friend</button>
+
+      <!-- List of friends rendered dynamically -->
+      <ul id="friendsList" class="friends-list"></ul>
+
+      <!-- Navigation back to main activity page -->
+      <button id="goChallengeBtn">Go back to Challenge</button>
+    </div>
+
+    <!-- POST UPLOAD CARD
+         Users can post achievements with optional images -->
+    <div class="card upload-box">
+      <textarea id="caption" placeholder="Share your outdoor achievement..."></textarea>
+      <input type="file" id="imageInput" accept="image/*">
+      <button id="createPostBtn">Post</button>
+    </div>
+
+    <!-- FEED SECTION
+         Display all posts dynamically -->
+    <h3 style="color: white">✨ Posts</h3>
+    <div id="feed"></div>
+
+  </div> 
+
+  <!-- 
+       SCRIPTS
+       External JS linked for modularity  -->
+  <script src="community.js"></script>
+
+</body>
+</html>
